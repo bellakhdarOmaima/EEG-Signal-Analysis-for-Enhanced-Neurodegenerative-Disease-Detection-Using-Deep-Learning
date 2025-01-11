@@ -37,6 +37,9 @@ The project employs advanced preprocessing techniques and a deep learning model 
 ## 📚 Dataset Overview  
 
 ### 📜 Dataset Description  
+
+The EEG dataset used in this project can be found on [OpenNeuro](https://openneuro.org/datasets/ds003344).
+
 This project utilizes an **open dataset from OpenNeuro** containing resting-state EEG recordings from 88 participants classified into three groups:  
 1. **Alzheimer's Disease (AD)**  
 2. **Frontotemporal Dementia (FTD)**  
