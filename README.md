@@ -1,6 +1,7 @@
 # 🧠 EEG Signal Classification: Alzheimer's Disease, Frontotemporal Dementia, and Cognitively Normal  
 
 ## 📜 Overview  
+
 This project focuses on classifying resting-state EEG signals into three categories:  
 - **Alzheimer's Disease (AD)**  
 - **Frontotemporal Dementia (FTD)**  
@@ -38,7 +39,7 @@ The project employs advanced preprocessing techniques and a deep learning model 
 
 ### 📜 Dataset Description  
 
-The EEG dataset used in this project can be found on [OpenNeuro](https://openneuro.org/datasets/ds003344).
+The EEG dataset used in this project can be found on [OpenNeuro](https://openneuro.org/datasets/ds004504/versions/1.0.7).
 
 This project utilizes an **open dataset from OpenNeuro** containing resting-state EEG recordings from 88 participants classified into three groups:  
 1. **Alzheimer's Disease (AD)**  
@@ -141,15 +142,23 @@ These models are used for both evaluation and real-time classification applicati
 ```plaintext
 EEG-Classification/
 ├── data/                    # Preprocessed EEG data
-├── models/                  # Saved model files
-│   ├── eegmodel.h5
-│   ├── encoder_model.h5
-├── notebooks/               # Jupyter notebooks for EDA and training
-├── preprocessing/           # Preprocessing scripts (ICA, ASR, etc.)
-├── results/                 # Visualizations and performance metrics
+├── EEGSimulation/                  # the interface where we deployed our model 
+│   ├── .idea
+│   ├── assets
+│   ├── data
+│   ├── .venv
+│   ├── models
+├── notebooks/
+│   ├── Final_Model   # here is the main deep learning model we trained
+│   ├── models        # here is the KNN and SVM benchmarking on the dataset to see the results 
+│   ├── XIA        # here where we did the explainbility IA techniques 
 ├── README.md                # Documentation
 
 ```
+## 📁 The interface 
+The interface  can be found on [Project_Interface](http://89.116.22.93:8502/).
+
+
 ### 🚀 Installation
 
 Follow the steps below to set up the project:
