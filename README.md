@@ -1,128 +1,158 @@
-# EEG Signal Analysis for Enhanced Neurodegenerative Disease Detection Using Deep Learning
-  🧠 EEG Disease Diagnosis with BIDS Dataset
-## 📚 General Description
-This project focuses on EEG-based disease diagnosis utilizing data structured according to the Brain Imaging Data Structure (BIDS) standard. The dataset includes metadata, EEG recordings, and preprocessed derivatives to facilitate robust machine learning workflows for EEG signal analysis.
+# 🧠 EEG Signal Classification: Alzheimer's Disease, Frontotemporal Dementia, and Cognitively Normal  
 
-The primary goal is to develop and optimize a preprocessing pipeline and analyze edge detection of architectural structures in EEG signals, paving the way for accurate disease diagnosis.
+## 📜 Overview  
+This project focuses on classifying resting-state EEG signals into three categories:  
+- **Alzheimer's Disease (AD)**  
+- **Frontotemporal Dementia (FTD)**  
+- **Cognitively Normal (CN)**  
 
-## 🌟 Features
-### 📁 BIDS-Compliant Data Organization:
-EEG recordings stored in .set format, accompanied by metadata in .json and .tsv files.
-Consistent metadata structure across participants to ensure interoperability and reproducibility.
-### 🧪 Preprocessing Pipeline:
-Noise Removal: Implements state-of-the-art filtering techniques to clean EEG signals.
-Feature Extraction: Extracts time-domain and frequency-domain features for analysis.
-Edge Detection: Specialized methods for identifying architectural structures in EEG patterns.
-### 🤖 Machine Learning Integration:
-Optimized for seamless application of deep learning models.
-Configured for classification and regression tasks tailored to disease diagnosis.
-### 🗂️ Derivatives:
-Preprocessed EEG data stored in a structured format, ready for analysis or modeling.
-### 📊 Visualization:
-Insightful graphs and plots to represent EEG signal behavior, trends, and feature distributions.
-## 📁 Project Structure
-plaintext
-Copy code
-EEG-Diagnosis-Project/
-├── dataset/                     # Original BIDS dataset
-│   ├── participants.tsv          # Metadata for participants
-│   ├── participants.json         # Participant attribute definitions
-│   ├── sub-0XX/                  # Participant-specific data
-│       ├── eeg/                  # EEG recordings and metadata
-│           ├── sub-0XX_task-eyesclosed_eeg.json
-│           ├── sub-0XX_task-eyesclosed_channels.tsv
-│           ├── sub-0XX_task-eyesclosed_eeg.set
-├── derivatives/                 # Preprocessed EEG data
-│   ├── sub-0XX/                  # Processed data per participant
-│       ├── eeg/                  
-├── notebooks/                   # Jupyter Notebooks for preprocessing and analysis
-│   ├── preprocessing.ipynb
-│   ├── feature_extraction.ipynb
-│   ├── visualization.ipynb
-├── models/                      # ML models for disease diagnosis
-│   ├── cnn_model.py
-│   ├── lstm_model.py
-│   ├── edge_detection.py
-├── scripts/                     # Utility scripts
-│   ├── preprocess.py             # Data preprocessing pipeline
-│   ├── feature_extraction.py     # Feature engineering methods
-│   ├── visualization.py          # Visualization tools
-├── requirements.txt             # Python dependencies
-├── README.md                    # Project documentation
-## 📋 Project Overview
-1. Libraries Used
-MNE: For EEG data processing and visualization.
-NumPy: Numerical computations for feature extraction.
-Matplotlib/Seaborn: EEG signal visualization.
-PyTorch: Deep learning frameworks for modeling.
-Scikit-learn: Classical machine learning for feature evaluation.
-2. Dataset
-The project employs a BIDS-compliant EEG dataset with the following components:
+The project employs advanced preprocessing techniques and a deep learning model architecture combining an **Autoencoder** and a **Bidirectional Long Short-Term Memory (LSTM)** network to achieve high accuracy in classification.  
 
-Metadata: Information about participants, EEG channel locations, and recording setup.
-EEG Signals: Collected during an eyes-closed task, stored in .set format.
-Derivatives: Preprocessed and cleaned EEG data for analysis.
-3. Models
-CNN (Convolutional Neural Networks): For spatial pattern detection in EEG signals.
-LSTM (Long Short-Term Memory): To capture temporal dependencies in EEG sequences.
-Edge Detection Pipeline: Specialized for architectural pattern recognition in EEG features.
-## 🚀 Installation
-Clone the Repository:
-bash
-Copy code
-git clone https://github.com/your-username/EEG-Diagnosis-Project.git
-cd EEG-Diagnosis-Project
-Create a Virtual Environment:
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # For Windows, use `venv\Scripts\activate`
-#### Install Dependencies:
-bash
-Copy code
-pip install -r requirements.txt
-## 💻 Usage
-1. Preprocess EEG Data:
-Run the preprocessing pipeline to clean and structure the data:
+---
 
-bash
-Copy code
-python scripts/preprocess.py
-2. Extract Features:
-Generate features for modeling:
+## 🌟 Key Features  
 
-bash
-Copy code
-python scripts/feature_extraction.py
-3. Visualize EEG Data:
-Explore EEG trends and patterns:
+### 📊 Participants  
+- **AD Group**: 36 subjects  
+- **FTD Group**: 23 subjects  
+- **CN Group**: 29 subjects  
 
-bash
-Copy code
-python scripts/visualization.py
-4. Train Models:
-Train and evaluate the classification model:
+### ⚙️ Preprocessing  
+- **Band-pass filter**: 0.5–45 Hz  
+- **Artifact removal**:  
+  - Independent Component Analysis (ICA)  
+  - Artifact Subspace Reconstruction (ASR)  
+- **Eye and jaw artifacts rejection**  
 
-bash
-Copy code
-python models/cnn_model.py
-🛠️ Technical Details
-Preprocessing Steps:
-Filtering: Bandpass filtering to remove noise.
-Normalization: Scaling EEG signals for consistency.
-Artifact Removal: Removing non-EEG artifacts using ICA.
-Feature Extraction:
-Time-domain features: Mean, variance, skewness.
-Frequency-domain features: Power spectral density, dominant frequency.
-## 📋 Requirements
-Python 3.9+
-MNE
-NumPy
-Matplotlib
-PyTorch
-Scikit-learn
-Refer to requirements.txt for the complete list of dependencies.
+### 🧪 Data  
+- **EEG recordings**: 19 channels  
+- **Sampling rate**: 500 Hz  
+- **Recording durations**:  
+  - AD: ~485 minutes  
+  - FTD: ~276 minutes  
+  - CN: ~402 minutes  
 
-## 📈 Results
-Key Insights:
-High accuracy in edge disease classification.
+---
+
+## 📚 Dataset Overview  
+
+### 📜 Dataset Description  
+This project utilizes an **open dataset from OpenNeuro** containing resting-state EEG recordings from 88 participants classified into three groups:  
+1. **Alzheimer's Disease (AD)**  
+2. **Frontotemporal Dementia (FTD)**  
+3. **Cognitively Normal (CN)**  
+
+### 👥 Participants Information  
+- **Distribution of participants**:  
+  - AD: 36 subjects  
+  - FTD: 23 subjects  
+  - CN: 29 subjects  
+- **Average MMSE scores by group** (Mini-Mental State Examination):  
+  - AD: ~19.4  
+  - FTD: ~23.7  
+  - CN: ~29.5  
+- **Average age by group**:  
+  - AD: ~72 years  
+  - FTD: ~66 years  
+  - CN: ~60 years  
+
+### ⚙️ Recording Details  
+- **EEG Device**: Nihon Kohden EEG 2100  
+- **Number of scalp electrodes**: 19  
+- **Sampling rate**: 500 Hz  
+- **Average recording durations**:  
+  - AD: ~13.5 minutes  
+  - FTD: ~12 minutes  
+  - CN: ~13.8 minutes  
+
+### 🔧 Preprocessing Steps  
+1. **Band-pass filtering**: 0.5–45 Hz.  
+2. **Artifact removal techniques**:  
+   - Artifact Subspace Reconstruction (ASR).  
+   - Independent Component Analysis (ICA).  
+3. **Re-referencing**: EEG signals were re-referenced to the average of electrodes A1 and A2.  
+
+---
+
+## 🏗️ Model Architecture and Training  
+
+### 🌟 Feature Extraction with Autoencoder  
+1. **Data Segmentation**:  
+   - EEG signals were segmented into overlapping epochs of **5 seconds** with a **50% overlap**.  
+2. **Autoencoder**:  
+   - **Encoder**: Dense layers with ReLU activations to extract compressed representations.  
+   - **Decoder**: Reconstructs the original signal from the compressed representation.  
+
+The autoencoder provides a robust feature representation of the EEG data, enabling efficient and accurate classification.  
+
+---
+
+### 🔄 Sequence Learning with Bidirectional LSTM  
+1. **Sequence Creation**:  
+   - Autoencoder-extracted features combined with **spectral entropy** values are aggregated into feature vectors for sequence analysis.  
+2. **Bidirectional LSTM Network**:  
+   - **Bidirectional LSTM layers**: Capture both forward and backward temporal dependencies in EEG sequences.  
+   - **Dropout layers**: Prevent overfitting.  
+   - **Batch Normalization layers**: Enhance training stability.  
+3. **Output**: Dense layers with ReLU activations followed by a softmax layer for classification into AD, FTD, or CN categories.  
+
+---
+
+### ⚙️ Training Process  
+- **Optimizer**: Adam  
+- **Loss Function**: Categorical Cross-Entropy  
+- **Class Weights**: Applied to address class imbalance  
+- **Callbacks**:  
+  - Early stopping  
+  - Reduce learning rate on plateau  
+
+### 🎯 Training Performance  
+- **Test Accuracy**: 98%  
+
+---
+
+## 📋 Feature Engineering  
+
+The features used for classification include:  
+1. **Band Power**: Extracted from the following frequency bands:  
+   - Delta  
+   - Theta  
+   - Alpha  
+   - Beta  
+   - Gamma  
+2. **Spectral Entropy**: Quantifies the randomness and complexity of EEG signals.  
+
+---
+
+## 💾 Model Saving  
+
+- **Model file**: `eegmodel.h5`  
+- **Encoder file**: `encoder_model.h5`  
+
+These models are used for both evaluation and real-time classification applications.  
+
+---
+
+## 📁 Project Structure  
+
+```plaintext
+EEG-Classification/
+├── data/                    # Preprocessed EEG data
+├── models/                  # Saved model files
+│   ├── eegmodel.h5
+│   ├── encoder_model.h5
+├── notebooks/               # Jupyter notebooks for EDA and training
+├── preprocessing/           # Preprocessing scripts (ICA, ASR, etc.)
+├── results/                 # Visualizations and performance metrics
+├── README.md                # Documentation
+
+```
+### 🚀 Installation
+
+Follow the steps below to set up the project:
+
+1. **Clone the Repository**  
+   Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/eeg-classification.git
+   cd eeg-classification
